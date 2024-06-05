@@ -1,3 +1,18 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--magnolia);
+}
+
+.stepper-form {
+  background-color: white !important;
+  padding: 10px;
+  border-radius: 20px;
+  width: 75vw;
+}
+
 .card-render {
   border: 0px !important;
 }
@@ -14,7 +29,7 @@
   margin-top: -13px;
 }
 
-.prev-step{
+.prev-step {
   background-color: var(--white) !important;
   font-weight: 500 !important;
   color: var(--cool-gray) !important;
@@ -24,5 +39,19 @@
 @media (max-width: 576px) {
   .card-render {
     margin-top: -150px !important;
+  }
+
+  .app {
+    display: flex;
+    align-items: start;
+    height: 100vh;
+    background-color: var(--magnolia);
+  }
+
+  .stepper-form {
+    background-color: white !important;
+    padding: 0px;
+    border-radius: 20px;
+    width: 100vw;
   }
 }
