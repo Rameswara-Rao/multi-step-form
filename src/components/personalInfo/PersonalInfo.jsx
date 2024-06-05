@@ -47,7 +47,7 @@ const PersonalInfo = () => {
       <p className="card-header--secondary-text">
         Please provide your name, email address, and phone number
       </p>
-      <Form>
+      <Form className="mt-sm-5">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label className="form-label-text">Name</Form.Label>
           <Form.Control
@@ -90,7 +90,11 @@ const PersonalInfo = () => {
         </Form.Group>
       </Form>
       <div className="text-end mt-5 pt-sm-4">
-        <Button onClick={handleSubmit} className="next-step">
+        <Button
+          onClick={handleSubmit}
+          className="next-step px-3"
+          disabled={Object.keys(validate()).length !== 0 ? true : false}
+        >
           Next Step
         </Button>
       </div>

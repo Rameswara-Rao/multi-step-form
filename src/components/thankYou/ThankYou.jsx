@@ -2,7 +2,7 @@ import { Image } from "react-bootstrap";
 
 const ThankYou = () => {
   return (
-    <div className="text-center mt-5">
+    <div className="text-center">
       <Image src="/img/thankyou/icon-thank-you.svg" className="mt-lg-5" fluid />
       <p className="card-header-text mt-4">Thank you!</p>
       <p className="card-header--secondary-text mt-2">

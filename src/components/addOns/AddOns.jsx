@@ -71,7 +71,7 @@ const AddOns = () => {
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>
-        <Button onClick={handleSubmit} className="next-step ms-auto">
+        <Button onClick={handleSubmit} className="next-step ms-auto px-3">
           Next Step
         </Button>
       </Stack>

@@ -96,7 +96,7 @@ const SelectPlan = () => {
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>
-        <Button onClick={handleSubmit} className="next-step ms-auto" disabled={activePlan ? false : true}>
+        <Button onClick={handleSubmit} className="next-step ms-auto px-3" disabled={activePlan ? false : true}>
           Next Step
         </Button>
       </Stack>

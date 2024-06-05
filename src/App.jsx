@@ -35,7 +35,7 @@ const App = () => {
         <Col className="p-0" sm={4} md={4} lg={4} xl={3} >
           <SideNav />
         </Col>
-        <Col sm={8} md={8} lg={8} xl={9} >
+        <Col className="my-auto" sm={8} md={8} lg={8} xl={9}>
           <Card className="card-render px-5 px-sm-0 px-lg-2">
             <Card.Body>{renderForm()}</Card.Body>
           </Card>

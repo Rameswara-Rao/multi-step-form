@@ -113,8 +113,8 @@ const Summary = () => {
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>
-        <Button onClick={handleSubmit} className="next-step ms-auto">
-          Next Step
+        <Button onClick={handleSubmit} className="next-step-confirm ms-auto px-4">
+          Confirm
         </Button>
       </Stack>
     </div>

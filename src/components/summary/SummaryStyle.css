@@ -16,3 +16,8 @@
   font-weight: 600;
   color: var(--purplish-blue);
 }
+
+.next-step-confirm{
+  background-color: var(--purplish-blue) !important;
+  border: 0px !important;
+}

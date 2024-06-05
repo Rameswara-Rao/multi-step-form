@@ -47,3 +47,8 @@
   color: var(--cool-gray);
   font-weight: 500;
 }
+
+#custom-switch.form-check-input:checked {
+  background-color: var(--marine-blue);
+  border-color: var(--marine-blue);
+}
