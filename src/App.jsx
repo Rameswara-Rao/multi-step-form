@@ -6,7 +6,8 @@ import AddOns from "./components/addOns/AddOns";
 import PersonalInfo from "./components/personalInfo/PersonalInfo";
 import SideNav from "./components/sideNav/SideNav";
 import { FormContext } from "./context/FormContext";
-import "./App.css"
+import "./App.css";
+import ThankYou from "./components/thankYou/ThankYou";
 
 const App = () => {
   const { step } = useContext(FormContext);
@@ -21,6 +22,8 @@ const App = () => {
         return <AddOns />;
       case 4:
         return <Summary />;
+      case 5:
+        return <ThankYou />;
       default:
         return <PersonalInfo />;
     }

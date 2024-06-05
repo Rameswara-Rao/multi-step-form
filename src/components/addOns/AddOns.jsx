@@ -5,10 +5,10 @@ import "./AddOnsStyle.css";
 import { pickAddOnsData } from "../../utils/constants";
 
 const AddOns = () => {
-  const { formData, updateFormData, nextStep } = useContext(FormContext);
+  const { formData, updateFormData, nextStep, prevStep } =
+    useContext(FormContext);
   const [selectedAddOn, setSelectedAddOn] = useState(formData.addOns || []);
 
-  
   const handleCheckboxChange = (event) => {
     const { id, checked } = event.target;
     setSelectedAddOn((prevSelectedAddOns) => {
@@ -43,7 +43,7 @@ const AddOns = () => {
             <Card.Body>
               <Stack direction="horizontal">
                 <div>
-                  <Form.Check 
+                  <Form.Check
                     type={"checkbox"}
                     id={data.id}
                     checked={selectedAddOn.includes(data.id)}
@@ -67,11 +67,14 @@ const AddOns = () => {
         );
       })}
 
-      <div className="text-end mt-5 pt-sm-4">
-        <Button onClick={handleSubmit} className="next-step">
+      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+        <Button onClick={prevStep} className="prev-step">
+          Go Back
+        </Button>
+        <Button onClick={handleSubmit} className="next-step ms-auto">
           Next Step
         </Button>
-      </div>
+      </Stack>
     </div>
   );
 };

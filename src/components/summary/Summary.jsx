@@ -1,19 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../../context/FormContext";
-import { Card, Stack } from "react-bootstrap/";
+import { Card, Stack, Button } from "react-bootstrap/";
 import "./SummaryStyle.css";
 import { pickAddOnsData, cardContent } from "../../utils/constants";
 
 const Summary = () => {
-  const { formData, nextStep } = useContext(FormContext);
+  const { formData, nextStep, prevStep } = useContext(FormContext);
   const [primaryPlan, setPrimaryPlan] = useState({});
   const [addOnSummary, setAddOnSummary] = useState([]);
-  console.log(
-    cardContent.filter((e) => e.id === formData.selectPlan.activePlan)[0]
-  );
-  console.log(primaryPlan);
-
-  console.log(addOnSummary);
 
   useEffect(() => {
     setPrimaryPlan(
@@ -33,7 +27,7 @@ const Summary = () => {
         ? primaryPlan.priceYearly
         : primaryPlan.price;
 
-    const addOnPrice = addOnSummary.reduce((acc, curr) => {
+    const addOnPrice = addOnSummary?.reduce((acc, curr) => {
       const price =
         formData?.selectPlan.plan === "yearly"
           ? curr.addOnPriceYear
@@ -42,10 +36,15 @@ const Summary = () => {
       return acc + numericPrice;
     }, 0);
 
-    return addOnPrice + parseInt(primaryPlanPrice.replace(/[^\d]/g, ""), 10);
+    return (
+      (addOnPrice || 0) + parseInt(primaryPlanPrice?.replace(/[^\d]/g, ""), 10)
+    );
   };
 
-  calculateTotal();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    nextStep();
+  };
 
   return (
     <div>
@@ -72,26 +71,27 @@ const Summary = () => {
             </div>
           </Stack>
           <hr />
-          {addOnSummary?.map((data) => {
-            return (
-              <Stack
-                className="addon-text"
-                key={data?.id}
-                direction="horizontal"
-              >
-                <div>
-                  <p>{data?.addOnName}</p>
-                </div>
-                <div className="ms-auto">
-                  <p>
-                    {formData.selectPlan.plan === "yearly"
-                      ? data?.addOnPriceYear
-                      : data?.addOnPriceMonth}
-                  </p>
-                </div>
-              </Stack>
-            );
-          })}
+          {addOnSummary &&
+            addOnSummary?.map((data) => {
+              return (
+                <Stack
+                  className="addon-text"
+                  key={data?.id}
+                  direction="horizontal"
+                >
+                  <div>
+                    <p>{data?.addOnName}</p>
+                  </div>
+                  <div className="ms-auto">
+                    <p>
+                      {formData.selectPlan.plan === "yearly"
+                        ? data?.addOnPriceYear
+                        : data?.addOnPriceMonth}
+                    </p>
+                  </div>
+                </Stack>
+              );
+            })}
         </Card.Body>
       </Card>
       <Stack className="addon-text mx-4 mt-4" direction="horizontal">
@@ -107,6 +107,15 @@ const Summary = () => {
             {formData.selectPlan.plan === "yearly" ? "yr" : "mon"}
           </p>
         </div>
+      </Stack>
+
+      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+        <Button onClick={prevStep} className="prev-step">
+          Go Back
+        </Button>
+        <Button onClick={handleSubmit} className="next-step ms-auto">
+          Next Step
+        </Button>
       </Stack>
     </div>
   );

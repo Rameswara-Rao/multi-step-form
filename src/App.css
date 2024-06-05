@@ -9,10 +9,17 @@
 }
 
 .card-header--secondary-text {
-    color: var(--cool-gray);
-    font-size: 1rem;
-    margin-top: -13px;
-  }
+  color: var(--cool-gray);
+  font-size: 1rem;
+  margin-top: -13px;
+}
+
+.prev-step{
+  background-color: var(--white) !important;
+  font-weight: 500 !important;
+  color: var(--cool-gray) !important;
+  border: 0px !important;
+}
 
 @media (max-width: 576px) {
   .card-render {

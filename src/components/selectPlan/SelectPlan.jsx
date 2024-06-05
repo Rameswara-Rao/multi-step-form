@@ -1,4 +1,4 @@
-import { Card, Col, Row, Image, Form, Button } from "react-bootstrap";
+import { Card, Col, Row, Image, Form, Button, Stack } from "react-bootstrap";
 import { FormContext } from "../../context/FormContext";
 
 import "./SelectPlan.css";
@@ -6,7 +6,7 @@ import { useState, useContext } from "react";
 import { cardContent } from "../../utils/constants";
 
 const SelectPlan = () => {
-  const { formData, updateFormData, nextStep } = useContext(FormContext);
+  const { formData, updateFormData, nextStep, prevStep } = useContext(FormContext);
   const [plan, setPlan] = useState(formData?.selectPlan?.plan || "monthly");
   const [activePlan, setActivePlan] = useState(formData?.selectPlan?.activePlan||"");
 
@@ -92,15 +92,14 @@ const SelectPlan = () => {
         </Col>
       </Row>
 
-      <div className="text-end mt-5 pt-sm-4">
-        <Button
-          onClick={handleSubmit}
-          className="next-step"
-          disabled={activePlan ? false : true}
-        >
+      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+        <Button onClick={prevStep} className="prev-step">
+          Go Back
+        </Button>
+        <Button onClick={handleSubmit} className="next-step ms-auto" disabled={activePlan ? false : true}>
           Next Step
         </Button>
-      </div>
+      </Stack>
     </div>
   );
 };
