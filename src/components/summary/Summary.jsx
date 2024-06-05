@@ -1,9 +1,52 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../../context/FormContext";
+import { Card, Stack } from "react-bootstrap/";
+import "./SummaryStyle.css";
+import { pickAddOnsData, cardContent } from "../../utils/constants";
 
 const Summary = () => {
-  const { formData, updateFormData, nextStep } = useContext(FormContext);
-  
+  const { formData, nextStep } = useContext(FormContext);
+  const [primaryPlan, setPrimaryPlan] = useState({});
+  const [addOnSummary, setAddOnSummary] = useState([]);
+  console.log(
+    cardContent.filter((e) => e.id === formData.selectPlan.activePlan)[0]
+  );
+  console.log(primaryPlan);
+
+  console.log(addOnSummary);
+
+  useEffect(() => {
+    setPrimaryPlan(
+      cardContent.filter((e) => e.id === formData.selectPlan.activePlan)[0]
+    );
+    setAddOnSummary(
+      formData.addOns.map((e) => {
+        const res = pickAddOnsData.filter((pickData) => pickData.id === e);
+        return res[0];
+      })
+    );
+  }, []);
+
+  const calculateTotal = () => {
+    const primaryPlanPrice =
+      formData?.selectPlan.plan === "yearly"
+        ? primaryPlan.priceYearly
+        : primaryPlan.price;
+
+    const addOnPrice = addOnSummary.reduce((acc, curr) => {
+      const price =
+        formData?.selectPlan.plan === "yearly"
+          ? curr.addOnPriceYear
+          : curr.addOnPriceMonth;
+      const numericPrice = parseInt(price.replace(/[^\d]/g, ""), 10); // Extract numeric value and parse it
+      return acc + numericPrice;
+    }, 0);
+
+    return addOnPrice + parseInt(primaryPlanPrice.replace(/[^\d]/g, ""), 10);
+  };
+
+  calculateTotal();
+
   return (
     <div>
       <p className="card-header-text">Pick add-ons</p>
@@ -11,7 +54,60 @@ const Summary = () => {
         Add-ons help enhance your gaming experience
       </p>
 
-      
+      <Card className="summary-card">
+        <Card.Body>
+          <Stack className="plan-name" direction="horizontal">
+            <div>
+              <p className="">
+                {primaryPlan?.name} (
+                {formData?.selectPlan.plan === "yearly" ? "Yearly" : "Monthly"})
+              </p>
+            </div>
+            <div className="ms-auto">
+              <p>
+                {formData?.selectPlan.plan === "yearly"
+                  ? primaryPlan?.priceYearly
+                  : primaryPlan?.price}
+              </p>
+            </div>
+          </Stack>
+          <hr />
+          {addOnSummary?.map((data) => {
+            return (
+              <Stack
+                className="addon-text"
+                key={data?.id}
+                direction="horizontal"
+              >
+                <div>
+                  <p>{data?.addOnName}</p>
+                </div>
+                <div className="ms-auto">
+                  <p>
+                    {formData.selectPlan.plan === "yearly"
+                      ? data?.addOnPriceYear
+                      : data?.addOnPriceMonth}
+                  </p>
+                </div>
+              </Stack>
+            );
+          })}
+        </Card.Body>
+      </Card>
+      <Stack className="addon-text mx-4 mt-4" direction="horizontal">
+        <div>
+          <p>
+            Total (per{" "}
+            {formData.selectPlan.plan === "yearly" ? "year" : "month"})
+          </p>
+        </div>
+        <div className="ms-auto">
+          <p className="total-amount">
+            ${calculateTotal()}/
+            {formData.selectPlan.plan === "yearly" ? "yr" : "mon"}
+          </p>
+        </div>
+      </Stack>
     </div>
   );
 };

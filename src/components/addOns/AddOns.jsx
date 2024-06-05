@@ -2,35 +2,13 @@ import { useContext, useState } from "react";
 import { Card, Form, Stack, Button } from "react-bootstrap";
 import { FormContext } from "../../context/FormContext";
 import "./AddOnsStyle.css";
+import { pickAddOnsData } from "../../utils/constants";
 
 const AddOns = () => {
   const { formData, updateFormData, nextStep } = useContext(FormContext);
   const [selectedAddOn, setSelectedAddOn] = useState(formData.addOns || []);
 
-  const pickAddOnsData = [
-    {
-      id: "online-service",
-      addOnName: "Online service",
-      addOnDesc: "Access to multiplayer games",
-      addOnPriceMonth: "+$1/mo",
-      addOnPriceYear: "+10/yr",
-    },
-    {
-      id: "larger-storage",
-      addOnName: "Larger storage",
-      addOnDesc: "Extra 1TB cloud save",
-      addOnPriceMonth: "+$2/mo",
-      addOnPriceYear: "+20/yr",
-    },
-    {
-      id: "customizable-profile",
-      addOnName: "Customizable profile",
-      addOnDesc: "custom theme on your profile",
-      addOnPriceMonth: "+$2/mo",
-      addOnPriceYear: "+20/yr",
-    },
-  ];
-
+  
   const handleCheckboxChange = (event) => {
     const { id, checked } = event.target;
     setSelectedAddOn((prevSelectedAddOns) => {

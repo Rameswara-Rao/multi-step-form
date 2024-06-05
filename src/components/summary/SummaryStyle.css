@@ -1,0 +1,18 @@
+.summary-card {
+  background-color: var(--alabaster) !important;
+  border: 0px !important;
+}
+
+.plan-name {
+  font-weight: 600;
+  color: var(--marine-blue) !important;
+}
+
+.addon-text {
+  color: var(--cool-gray) !important;
+}
+
+.total-amount {
+  font-weight: 600;
+  color: var(--purplish-blue);
+}
