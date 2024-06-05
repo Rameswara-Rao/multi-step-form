@@ -1,4 +1,5 @@
-.addOn-card {
+.addOn-card:hover {
+  border: 1px solid var(--purplish-blue) !important;
 }
 
 .addOn-name {
@@ -6,9 +7,18 @@
   color: var(--marine-blue);
 }
 
-.addOn-desc{
-    color: var(--cool-gray);
-    font-weight: 500;
-    margin-top: -10px;
-    font-size: 14px;
+.addOn-desc {
+  color: var(--cool-gray);
+  font-weight: 500;
+  margin-top: -10px;
+  font-size: 14px;
+}
+
+.addon-price {
+  color: var(--purplish-blue);
+}
+
+.addOn-card-active {
+  border: 1px solid var(--purplish-blue) !important;
+  background-color: var(--alabaster) !important;
 }
