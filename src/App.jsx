@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from "react-bootstrap";
 import SelectPlan from "./components/SelectPlan";
 import Summary from "./components/Summary";
 import AddOns from "./components/AddOns";
-import PersonalInfo from "./components/PersonalInfo";
-import SideNav from "./components/SideNav";
+import PersonalInfo from "./components/personalInfo/PersonalInfo";
+import SideNav from "./components/sideNav/SideNav";
 import { FormContext } from "./context/FormContext";
+import "./App.css"
 
 const App = () => {
   const { step } = useContext(FormContext);
@@ -27,14 +28,14 @@ const App = () => {
 
   return (
     <Container fluid>
-      <Row className="justify-content-center">
-        <Col md={3}>
+      <Row>
+        <Col className="p-0" sm={4} md={3} xl={2}>
           <SideNav />
         </Col>
-        <Col md={9}>
-          <div className="p-4 bg-white rounded shadow-sm">
-            {renderForm()}
-          </div>
+        <Col sm={8} md={9} xl={10}>
+          <Card className="card-render px-5">
+            <Card.Body>{renderForm()}</Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>

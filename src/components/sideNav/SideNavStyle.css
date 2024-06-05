@@ -1,0 +1,54 @@
+.sidenav-bg {
+  height: 65vh;
+  background-image: url("/img/SideNav/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.step {
+  color: var(--light-gray);
+  font-size: 12px;
+}
+
+.header-name {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.list {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.numberCircle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  border: 1px solid var(--light-gray);
+  color: var(--white);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.active {
+  background-color: var(--light-blue);
+  color: var(--marine-blue);
+}
+
+@media (max-width: 576px) {
+  .sidenav-bg {
+    max-height: 280px;
+    background-image: url("/img/SideNav/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0px;
+  }
+
+  .list {
+    display: flex;
+    justify-content: center;
+  }
+}

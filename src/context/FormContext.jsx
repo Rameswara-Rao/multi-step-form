@@ -11,9 +11,18 @@ export const FormProvider = ({ children }) => {
   };
 
 
+  const nextStep = () => {
+    setStep(prevStep => prevStep + 1);
+  };
+
+  const prevStep = () => {
+    setStep(prevStep => prevStep - 1);
+  };
+
+
   return (
     <FormContext.Provider
-      value={{ formData, updateFormData, step, setStep }}
+      value={{ formData, updateFormData, step, setStep, nextStep, prevStep }}
     >
       {children}
     </FormContext.Provider>

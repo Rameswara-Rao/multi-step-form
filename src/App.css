@@ -1,0 +1,21 @@
+.card-render {
+  border: 0px !important;
+}
+
+.card-header-text {
+  color: var(--marine-blue);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.card-header--secondary-text {
+    color: var(--cool-gray);
+    font-size: 1rem;
+    margin-top: -13px;
+  }
+
+@media (max-width: 576px) {
+  .card-render {
+    margin-top: -150px !important;
+  }
+}
