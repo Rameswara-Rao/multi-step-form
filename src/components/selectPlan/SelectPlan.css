@@ -1,0 +1,49 @@
+.name-plan {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.plan-price {
+  font-size: 13px;
+  color: var(--cool-gray);
+  margin-top: -15px;
+}
+
+.select-plan-mod {
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+}
+
+.select-plan-mod:hover {
+  border: 1px solid var(--marine-blue);
+  cursor: pointer;
+}
+
+.select-plan-mod-active {
+  border: 1px solid var(--marine-blue) !important;
+  cursor: pointer;
+  background-color: var(--magnolia) !important;
+}
+
+.card-mon-year {
+  border: 0px !important;
+  background-color: var(--magnolia) !important;
+}
+
+.free-offer {
+  color: var(--marine-blue);
+  margin-top: -15px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.plan-active {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.plan-inactive {
+  color: var(--cool-gray);
+  font-weight: 500;
+}

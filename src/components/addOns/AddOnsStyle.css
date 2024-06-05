@@ -1,0 +1,14 @@
+.addOn-card {
+}
+
+.addOn-name {
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.addOn-desc{
+    color: var(--cool-gray);
+    font-weight: 500;
+    margin-top: -10px;
+    font-size: 14px;
+}

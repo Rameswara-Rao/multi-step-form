@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import SelectPlan from "./components/SelectPlan";
+import SelectPlan from "./components/selectPlan/SelectPlan";
 import Summary from "./components/Summary";
-import AddOns from "./components/AddOns";
+import AddOns from "./components/addOns/AddOns";
 import PersonalInfo from "./components/personalInfo/PersonalInfo";
 import SideNav from "./components/sideNav/SideNav";
 import { FormContext } from "./context/FormContext";

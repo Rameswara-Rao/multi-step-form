@@ -10,7 +10,6 @@ const SideNav = () => {
     { number: 3, label: "ADD-ONS" },
     { number: 4, label: "SUMMARY" },
   ];
-  console.log(step);
 
   return (
     <div className="sidenav-bg">
