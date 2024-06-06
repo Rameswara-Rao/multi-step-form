@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 import "./SideNavStyle.css";
 
@@ -37,4 +37,4 @@ const SideNav = () => {
   );
 };
 
-export default SideNav;
+export default React.memo(SideNav);

@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, lazy, Suspense } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import SelectPlan from "./components/selectPlan/SelectPlan";
-import Summary from "./components/summary/Summary";
-import AddOns from "./components/addOns/AddOns";
-import PersonalInfo from "./components/personalInfo/PersonalInfo";
-import SideNav from "./components/sideNav/SideNav";
+const SelectPlan = lazy(() => import("./components/selectPlan/SelectPlan"));
+const Summary = lazy(() => import("./components/summary/Summary"));
+const AddOns = lazy(() => import("./components/addOns/AddOns"));
+const PersonalInfo = lazy(() =>
+  import("./components/personalInfo/PersonalInfo")
+);
+const SideNav = lazy(() => import("./components/sideNav/SideNav"));
+const ThankYou = lazy(() => import("./components/thankYou/ThankYou"));
 import { FormContext } from "./context/FormContext";
 import "./App.css";
-import ThankYou from "./components/thankYou/ThankYou";
 
 const App = () => {
   const { step } = useContext(FormContext);
@@ -32,12 +34,18 @@ const App = () => {
   return (
     <Container className="app" fluid>
       <Row className="stepper-form">
-        <Col className="p-0" sm={4} md={4} lg={4} xl={3} >
-          <SideNav />
+        <Col className="p-0" sm={4} md={4} lg={4} xl={3}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SideNav />
+          </Suspense>
         </Col>
         <Col className="my-auto" sm={8} md={8} lg={8} xl={9}>
           <Card className="card-render px-3 px-sm-0 px-lg-2">
-            <Card.Body>{renderForm()}</Card.Body>
+            <Card.Body>
+              <Suspense fallback={<div>Loading...</div>}>
+                {renderForm()}
+              </Suspense>
+            </Card.Body>
           </Card>
         </Col>
       </Row>

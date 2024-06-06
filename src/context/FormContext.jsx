@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 
 export const FormContext = createContext();
 
@@ -6,19 +6,17 @@ export const FormProvider = ({ children }) => {
   const [formData, setFormData] = useState({});
   const [step, setStep] = useState(1);
 
-  const updateFormData = (newData) => {
+  const updateFormData = useCallback((newData) => {
     setFormData((prevData) => ({ ...prevData, ...newData }));
-  };
+  }, []);
 
+  const nextStep = useCallback(() => {
+    setStep((prevStep) => prevStep + 1);
+  }, []);
 
-  const nextStep = () => {
-    setStep(prevStep => prevStep + 1);
-  };
-
-  const prevStep = () => {
-    setStep(prevStep => prevStep - 1);
-  };
-
+  const prevStep = useCallback(() => {
+    setStep((prevStep) => prevStep - 1);
+  }, []);
 
   return (
     <FormContext.Provider

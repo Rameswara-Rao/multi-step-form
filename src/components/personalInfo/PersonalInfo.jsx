@@ -1,4 +1,4 @@
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./PersonalInfoStyle.css";
 import { useState, useContext } from "react";
 import { FormContext } from "../../context/FormContext";
