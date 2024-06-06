@@ -21,13 +21,24 @@ const PersonalInfo = () => {
     } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
       errors.email = "Invalid email address";
     }
-    if (!formState.phone) errors.phone = "This field is required";
+    if (!formState.phone) {
+      errors.phone = "This field is required";
+    } else if (!/^\d{10}$/.test(formState.phone)) {
+      errors.phone = "Phone number must be 10 digits";
+    }
     return errors;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
+    if (name === "phone") {
+      // Allow only numeric values for phone input
+      if (/^\d*$/.test(value)) {
+        setFormState({ ...formState, [name]: value });
+      }
+    } else {
+      setFormState({ ...formState, [name]: value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -47,8 +58,8 @@ const PersonalInfo = () => {
       <p className="card-header--secondary-text">
         Please provide your name, email address, and phone number
       </p>
-      <Form className="">
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form>
+        <Form.Group className="mb-3" controlId="formName">
           <Form.Label className="form-label-text">Name</Form.Label>
           <Form.Control
             type="text"
@@ -63,7 +74,7 @@ const PersonalInfo = () => {
             {errors.name}
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label className="form-label-text">Email address</Form.Label>
           <Form.Control
             type="email"
@@ -78,17 +89,17 @@ const PersonalInfo = () => {
             {errors.email}
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Group className="mb-3" controlId="formPhone">
           <Form.Label className="form-label-text">Phone Number</Form.Label>
           <Form.Control
-            type="text"
+            type="tel"
             name="phone"
             className="form-focus-mod"
             value={formState.phone}
             onChange={handleChange}
             isInvalid={!!errors.phone}
             placeholder="e.g. +1 234 567 890"
-            max={10}
+            maxLength={10}
           />
           <Form.Control.Feedback type="invalid">
             {errors.phone}
@@ -100,7 +111,7 @@ const PersonalInfo = () => {
         <Button
           onClick={handleSubmit}
           className="next-step px-3"
-          disabled={Object.keys(validate()).length !== 0 ? true : false}
+          // disabled={Object.keys(validate()).length !== 0}
         >
           Next Step
         </Button>
