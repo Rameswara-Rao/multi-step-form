@@ -40,7 +40,7 @@ const App = () => {
           </Suspense>
         </Col>
         <Col className="my-auto" sm={8} md={8} lg={8} xl={9}>
-          <Card className="card-render px-3 px-sm-0 px-lg-2">
+          <Card className="card-render px-3 px-sm-0 px-md-3 px-lg-4 px-xl-5">
             <Card.Body>
               <Suspense fallback={<div>Loading...</div>}>
                 {renderForm()}
