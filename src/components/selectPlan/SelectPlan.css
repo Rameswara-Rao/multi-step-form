@@ -13,6 +13,7 @@
 .select-plan-mod {
   border: 1px solid var(--light-gray);
   cursor: pointer;
+  transition: 0.4s;
 }
 
 .select-plan-mod:hover {
@@ -46,6 +47,11 @@
 .plan-inactive {
   color: var(--cool-gray);
   font-weight: 500;
+}
+
+#custom-switch.form-check-input {
+  box-shadow: none !important;
+  cursor: pointer;
 }
 
 #custom-switch.form-check-input:checked {

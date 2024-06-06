@@ -45,6 +45,7 @@ const AddOns = () => {
                 <div>
                   <Form.Check
                     type={"checkbox"}
+                    className="form-checkbox-mod"
                     id={data.id}
                     checked={selectedAddOn.includes(data.id)}
                     onChange={handleCheckboxChange}

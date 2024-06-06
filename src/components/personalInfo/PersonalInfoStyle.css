@@ -2,7 +2,15 @@
   color: var(--marine-blue);
 }
 
-.next-step {
-  border: 0px !important;
-  background-color: var(--marine-blue) !important;
+.form-focus-mod{
+  color: var(--marine-blue) !important;
+}
+
+.form-focus-mod::placeholder{
+  color: var(--cool-gray) !important;
+}
+
+.form-focus-mod:focus{
+  border: 1px solid var(--purplish-blue) !important;
+  box-shadow: none !important;
 }

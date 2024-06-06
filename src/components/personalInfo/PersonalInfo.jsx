@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 import "./PersonalInfoStyle.css";
 import { useState, useContext } from "react";
 import { FormContext } from "../../context/FormContext";
@@ -47,12 +47,14 @@ const PersonalInfo = () => {
       <p className="card-header--secondary-text">
         Please provide your name, email address, and phone number
       </p>
-      <Form className="mt-sm-5">
+      <Form className="">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label className="form-label-text">Name</Form.Label>
           <Form.Control
             type="text"
             name="name"
+            className="form-focus-mod"
+            placeholder="e.g. Stephen King"
             value={formState.name}
             onChange={handleChange}
             isInvalid={!!errors.name}
@@ -66,6 +68,8 @@ const PersonalInfo = () => {
           <Form.Control
             type="email"
             name="email"
+            className="form-focus-mod"
+            placeholder="e.g. stephenking@lorem.com"
             value={formState.email}
             onChange={handleChange}
             isInvalid={!!errors.email}
@@ -79,17 +83,20 @@ const PersonalInfo = () => {
           <Form.Control
             type="text"
             name="phone"
+            className="form-focus-mod"
             value={formState.phone}
             onChange={handleChange}
             isInvalid={!!errors.phone}
             placeholder="e.g. +1 234 567 890"
+            max={10}
           />
           <Form.Control.Feedback type="invalid">
             {errors.phone}
           </Form.Control.Feedback>
         </Form.Group>
       </Form>
-      <div className="text-end mt-5 pt-sm-4">
+
+      <div className="text-end pt-sm-5 mt-5">
         <Button
           onClick={handleSubmit}
           className="next-step px-3"

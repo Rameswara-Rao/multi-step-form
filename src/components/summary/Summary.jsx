@@ -61,6 +61,7 @@ const Summary = () => {
                 {primaryPlan?.name} (
                 {formData?.selectPlan.plan === "yearly" ? "Yearly" : "Monthly"})
               </p>
+              <Button className="btn-link-mod" variant="link">Change</Button>
             </div>
             <div className="ms-auto">
               <p>
@@ -70,7 +71,7 @@ const Summary = () => {
               </p>
             </div>
           </Stack>
-          <hr />
+          <hr className="hr" />
           {addOnSummary &&
             addOnSummary?.map((data) => {
               return (
@@ -113,7 +114,7 @@ const Summary = () => {
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>
-        <Button onClick={handleSubmit} className="next-step-confirm ms-auto px-4">
+        <Button onClick={handleSubmit} className="next-step ms-auto px-4">
           Confirm
         </Button>
       </Stack>

@@ -1,3 +1,6 @@
+.addOn-card {
+  transition: 0.4s ease;
+}
 .addOn-card:hover {
   border: 1px solid var(--purplish-blue) !important;
 }
@@ -21,4 +24,14 @@
 .addOn-card-active {
   border: 1px solid var(--purplish-blue) !important;
   background-color: var(--alabaster) !important;
+}
+
+.form-checkbox-mod .form-check-input {
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.form-checkbox-mod .form-check-input:checked {
+  background-color: var(--purplish-blue) !important;
+  border: 1px solid var(--purplish-blue) !important;
 }

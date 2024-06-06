@@ -36,6 +36,15 @@
   border: 0px !important;
 }
 
+.next-step{
+  background-color: var(--marine-blue) !important;
+  border: 0px !important;
+}
+
+.next-step:hover{
+  background-color: var(--purplish-blue) !important;
+}
+
 @media (max-width: 576px) {
   .card-render {
     margin-top: -150px !important;
@@ -53,5 +62,11 @@
     padding: 0px;
     border-radius: 20px;
     width: 100vw;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  .stepper-form {
+    width: 95vw;
   }
 }

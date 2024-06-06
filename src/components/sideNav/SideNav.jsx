@@ -3,7 +3,7 @@ import { FormContext } from "../../context/FormContext";
 import "./SideNavStyle.css";
 
 const SideNav = () => {
-  const { step, setStep } = useContext(FormContext);
+  const { step } = useContext(FormContext);
   const steps = [
     { number: 1, label: "YOUR INFO" },
     { number: 2, label: "SELECT PLAN" },
@@ -15,7 +15,7 @@ const SideNav = () => {
     <div className="sidenav-bg">
       <ul className="list py-5">
         {steps.map((s) => (
-          <li className="py-3" key={s.number} onClick={() => setStep(s.number)}>
+          <li className="py-3" key={s.number}>
             <div className="d-flex align-items-center">
               <div
                 className={`numberCircle me-4 ${
