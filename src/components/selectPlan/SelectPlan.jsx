@@ -22,7 +22,7 @@ const SelectPlan = () => {
       <p className="card-header--secondary-text">
         You have the option of monthly or yearly billing
       </p>
-      <Row className="mt-5">
+      <Row className="mt-4">
         {cardContent.map((data, ind) => {
           return (
             <Col sm={4} key={ind}>
@@ -58,7 +58,7 @@ const SelectPlan = () => {
         })}
       </Row>
 
-      <Row className="mt-5">
+      <Row className="mt-3">
         <Col>
           <Card className="card-mon-year">
             <Card.Body>
@@ -92,7 +92,7 @@ const SelectPlan = () => {
         </Col>
       </Row>
 
-      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+      <Stack direction="horizontal" className="mt-4 pt-sm-4">
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>

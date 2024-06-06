@@ -68,7 +68,7 @@ const AddOns = () => {
         );
       })}
 
-      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+      <Stack direction="horizontal" className="mt-3 pt-sm-4">
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>

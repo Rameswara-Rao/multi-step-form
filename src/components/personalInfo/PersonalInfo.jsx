@@ -98,7 +98,7 @@ const PersonalInfo = () => {
             value={formState.phone}
             onChange={handleChange}
             isInvalid={!!errors.phone}
-            placeholder="e.g. +1 234 567 890"
+            placeholder="e.g. 9840653362"
             maxLength={10}
           />
           <Form.Control.Feedback type="invalid">

@@ -110,7 +110,7 @@ const Summary = () => {
         </div>
       </Stack>
 
-      <Stack direction="horizontal" className="mt-5 pt-sm-4">
+      <Stack direction="horizontal" className="mt-4 pt-sm-4">
         <Button onClick={prevStep} className="prev-step">
           Go Back
         </Button>
