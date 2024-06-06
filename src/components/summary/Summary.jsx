@@ -5,7 +5,7 @@ import "./SummaryStyle.css";
 import { pickAddOnsData, cardContent } from "../../utils/constants";
 
 const Summary = () => {
-  const { formData, nextStep, prevStep } = useContext(FormContext);
+  const { formData, nextStep, prevStep, setStep } = useContext(FormContext);
   const [primaryPlan, setPrimaryPlan] = useState({});
   const [addOnSummary, setAddOnSummary] = useState([]);
 
@@ -61,7 +61,7 @@ const Summary = () => {
                 {primaryPlan?.name} (
                 {formData?.selectPlan.plan === "yearly" ? "Yearly" : "Monthly"})
               </p>
-              <Button className="btn-link-mod" variant="link">Change</Button>
+              <Button className="btn-link-mod" onClick={()=>setStep(2)} variant="link">Change</Button>
             </div>
             <div className="ms-auto">
               <p>
